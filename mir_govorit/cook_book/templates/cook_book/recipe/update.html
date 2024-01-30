@@ -1,0 +1,14 @@
+{% extends "cook_book/base.html" %}
+
+{% block title %}
+    Update {{ recipe.name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ recipe.name }}</h1>
+    <form method="post" class="update_form">
+        {{ form.as_p }}
+        <p><input type="submit" value="OK"></p>
+        {% csrf_token %}
+    </form>
+{% endblock %}

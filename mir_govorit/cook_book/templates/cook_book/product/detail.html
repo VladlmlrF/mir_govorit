@@ -1,0 +1,15 @@
+{% extends "cook_book/base.html" %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ product.name }}</h1>
+        <p>has been used {{ product.used }} times</p>
+    </div>
+    <form action="{% url 'cook_book:without_product' product.id %}" method="get">
+      <input type="submit" value="Show recipes without {{ product.name }}">
+    </form>
+{% endblock %}

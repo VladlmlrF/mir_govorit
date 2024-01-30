@@ -1,0 +1,24 @@
+{% extends "cook_book/base.html" %}
+
+{% block title %}
+    {{ recipe.name }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>{{ recipe.name }}</h1>
+        {% for item in items %}
+            {{ item.product }}
+            {{ item.weight }} g.
+            <br>
+        {% endfor %}
+    </div>
+    <br>
+    <form action="{% url 'cook_book:recipe_update' recipe.id %}" method="get">
+      <input type="submit" value="Change the recipe">
+    </form>
+    <br>
+    <form action="{% url 'cook_book:cook_recipe' recipe.id %}" method="get">
+      <input type="submit" value="Cook recipe">
+    </form>
+{% endblock %}

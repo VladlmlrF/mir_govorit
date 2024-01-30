@@ -1,0 +1,15 @@
+{% extends "cook_book/base.html" %}
+
+{% block title %}
+    Recipes
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Recipes</h1>
+        {% for recipe in recipes %}
+            <p>ID: {{ recipe.id }}</p>
+            <a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}
